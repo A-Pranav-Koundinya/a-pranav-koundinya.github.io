@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Pranav Koundinya — Data Scientist & ML Engineer</title>
+  <meta name="description" content="Portfolio of A Pranav Koundinya — Associate Data Scientist building machine learning, generative AI and analytics systems." />
+  <meta name="theme-color" content="#05060a" />
+  <meta property="og:title" content="A Pranav Koundinya — Data Scientist & ML Engineer" />
+  <meta property="og:description" content="Machine learning, generative AI, graph neural networks and data products." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="is-loading">
+
+  <!-- ================= PRELOADER ================= -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__grid"></div>
+    <div class="preloader__inner">
+      <div class="preloader__label mono">initializing neural weights</div>
+      <div class="preloader__count"><span id="loaderCount">000</span><sup>%</sup></div>
+      <div class="preloader__bar"><span id="loaderBar"></span></div>
+      <div class="preloader__log mono" id="loaderLog">loading tensors…</div>
+    </div>
+  </div>
+
+  <!-- ================= GLOBAL FX ================= -->
+  <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+  </div>
+  <canvas class="bg-grid" id="bgGrid" aria-hidden="true"></canvas>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" data-magnetic data-cursor="Home">
+      <span class="nav__logo-mark">APK</span><span class="nav__logo-dot"></span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about" data-scramble><span class="mono">01</span>About</a>
+      <a href="#experience" data-scramble><span class="mono">02</span>Experience</a>
+      <a href="#projects" data-scramble><span class="mono">03</span>Work</a>
+      <a href="#skills" data-scramble><span class="mono">04</span>Skills</a>
+      <a href="#contact" data-scramble><span class="mono">05</span>Contact</a>
+    </nav>
+    <a href="assets/A_Pranav_Koundinya_Resume.pdf" target="_blank" rel="noopener" class="btn btn--ghost nav__cta" data-magnetic data-cursor="Open">
+      Résumé <span class="btn__arrow">↗</span>
+    </a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <a href="assets/A_Pranav_Koundinya_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+  </div>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <div class="hero__status mono reveal-up">
+          <span class="pulse-dot"></span> <span class="hide-sm">Currently ·</span> Associate Data Scientist @ PlaySimple Games
+        </div>
+
+        <h1 class="hero__title" aria-label="A Pranav Koundinya">
+          <span class="hero__line"><span class="hero__word">A&nbsp;Pranav</span></span>
+          <span class="hero__line"><span class="hero__word">Koundinya</span></span>
+        </h1>
+
+        <div class="hero__role">
+          <span class="mono hero__role-prefix">&gt;_</span>
+          <span class="hero__role-text" id="roleText">Data Science</span>
+          <span class="hero__caret"></span>
+        </div>
+
+        <p class="hero__tagline reveal-up">
+          Finding patterns in numbers, stories in data, and possibilities in the unexpected.
+        </p>
+
+        <div class="hero__ctas reveal-up">
+          <a href="#projects" class="btn btn--primary" data-magnetic data-cursor="Explore">
+            <span>View my work</span><span class="btn__arrow">→</span>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-magnetic data-cursor="Say hi">
+            <span>Get in touch</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__meta container mono">
+        <div class="hero__meta-item">
+          <span class="dim">location</span>
+          <span>Bengaluru, IN · <span id="localTime">--:--</span> IST</span>
+        </div>
+        <div class="hero__meta-item hero__morph">
+          <span class="dim">particle_state</span>
+          <span id="morphLabel">neural_sphere</span>
+        </div>
+        <div class="hero__meta-item hero__hint">
+          <span class="dim">interact</span>
+          <span>move · click to morph</span>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll down">
+        <span class="hero__scroll-line"></span>
+        <span class="mono">scroll</span>
+      </a>
+    </section>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" data-marquee>
+        <span>Data Science</span><i>✦</i>
+        <span class="outline">Machine Learning</span><i>✦</i>
+        <span>Generative AI</span><i>✦</i>
+        <span class="outline">Forecasting</span><i>✦</i>
+        <span>Markov Chains</span><i>✦</i>
+        <span class="outline">Data Analytics</span><i>✦</i>
+        <span>LLMs</span><i>✦</i>
+        <span class="outline">SQL</span><i>✦</i>
+        <span>Pyspark</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ================= ABOUT / INTRO ================= -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <!-- ===================================================== -->
+          <!-- ===== EDIT: INTRODUCTION — replace the placeholder text ===== -->
+          <!-- ===================================================== -->
+          <div class="intro-slot reveal-up" data-cursor="Your story">
+            <div class="intro-slot__corner intro-slot__corner--tl"></div>
+            <div class="intro-slot__corner intro-slot__corner--tr"></div>
+            <div class="intro-slot__corner intro-slot__corner--bl"></div>
+            <div class="intro-slot__corner intro-slot__corner--br"></div>
+
+            <span class="intro-slot__tag mono">// introduction.md</span>
+
+            <p class="intro-slot__lead">
+              Hi, I'm <strong>A Pranav Koundinya</strong> — a data scientist from Bengaluru.
+            </p>
+            <p class="intro-slot__body">
+              I'm an AI &amp; ML engineer (B.E., M S Ramaiah Institute of Technology, CGPA 9.61)
+              currently working as an Associate Data Scientist at PlaySimple Games. My work sits at the
+              intersection of machine learning, generative AI and product analytics — from LTV models and
+              player-journey analysis to end-to-end AI video generation.
+            </p>
+          </div>
+          <!-- ===== /EDIT: INTRODUCTION ===== -->
+
+          <div class="about__side">
+            <div class="terminal reveal-up" data-cursor="Python">
+              <div class="terminal__bar">
+                <span></span><span></span><span></span>
+                <em class="mono">pranav.py</em>
+              </div>
+              <pre class="terminal__body mono" id="terminalCode" aria-label="Python profile snippet"></pre>
+            </div>
+
+            <div class="stats stats--single">
+              <div class="stat reveal-up">
+                <span class="stat__num" data-count="9.61" data-decimals="2">0</span>
+                <span class="stat__label">CGPA · B.E. AI &amp; ML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__index mono">02 — Experience</span>
+        </div>
+
+        <div class="timeline" id="timeline">
+          <div class="timeline__rail"><span class="timeline__fill" id="timelineFill"></span></div>
+
+          <!-- PlaySimple — Associate -->
+          <article class="tl-item">
+            <div class="tl-item__node"><span></span></div>
+            <div class="tl-item__date mono">Jun 2026 — Present</div>
+            <div class="tl-card" data-tilt>
+              <div class="tl-card__glow"></div>
+              <header class="tl-card__head">
+                <div>
+                  <h3>Associate Data Scientist</h3>
+                  <p class="tl-card__org">PlaySimple Games Ltd · Bengaluru</p>
+                </div>
+                <span class="chip chip--live"><span class="pulse-dot"></span>Current</span>
+              </header>
+              <ul class="tl-card__list">
+                <li><strong>D0 player-journey analysis</strong> — modelled puzzle paths with Markov chains &amp; finite-state machines to surface journeys linked to higher D1 retention, validated across 4 acquisition channels and 84 days of cohorts.</li>
+                <li><strong>Creative Studios: AI video generation</strong> — end-to-end platform combining 4 playable games, AI visuals, automated transitions and gameplay footage; automates 240+ storylines a week across 3 regions in 4 reusable ad formats.</li>
+                <li><strong>Recovery &amp; revenue dashboard</strong> — replaced manual finance reporting with recovery, spend and ROAS views plus revenue forecasting for future cohorts (FastAPI + React).</li>
+              </ul>
+              <div class="tags"><span>Python</span><span>SQL</span><span>LLMs</span><span>Seedance</span><span>FastAPI</span><span>React</span><span>Forecasting</span></div>
+            </div>
+          </article>
+
+          <!-- PlaySimple — Trainee -->
+          <article class="tl-item">
+            <div class="tl-item__node"><span></span></div>
+            <div class="tl-item__date mono">Dec 2025 — Jun 2026</div>
+            <div class="tl-card" data-tilt>
+              <div class="tl-card__glow"></div>
+              <header class="tl-card__head">
+                <div>
+                  <h3>Trainee Data Scientist</h3>
+                  <p class="tl-card__org">PlaySimple Games Ltd · Bengaluru</p>
+                </div>
+              </header>
+              <ul class="tl-card__list">
+                <li><strong>LTV model for GCC</strong> — improved game × CLI × country LTV prediction by restructuring training data across levels and adding GCC-specific features in PySpark on Databricks.</li>
+                <li><strong>Static ad creative automation</strong> — generated large batches of creatives (encrypted text, backgrounds, borders, fonts, layouts) with a Streamlit control panel integrated into Creative Studio.</li>
+                <li><strong>DTC content generation</strong> — a 5-stage GPT pipeline from words &amp; clues to citations and fact-checks, with validation, regeneration and duplicate detection against 223 historical records.</li>
+              </ul>
+              <div class="tags"><span>PySpark</span><span>Databricks</span><span>OpenCV</span><span>Streamlit</span><span>AWS S3</span><span>GPT</span><span>SentenceTransformers</span></div>
+            </div>
+          </article>
+
+          <!-- 4SYZ -->
+          <article class="tl-item">
+            <div class="tl-item__node"><span></span></div>
+            <div class="tl-item__date mono">Mar 2025 — Jun 2025</div>
+            <div class="tl-card" data-tilt>
+              <div class="tl-card__glow"></div>
+              <header class="tl-card__head">
+                <div>
+                  <h3>ML Engineer Intern</h3>
+                  <p class="tl-card__org">4SYZ Infotech Solutions Pvt Ltd</p>
+                </div>
+              </header>
+              <ul class="tl-card__list">
+                <li>Built a dynamic-threshold inventory-tracking system, saving <strong>10 hours/week</strong> of manual monitoring.</li>
+                <li>Shipped a gradient-boosting classifier that auto-categorises incoming stock at <strong>88% accuracy</strong>.</li>
+              </ul>
+              <div class="tags"><span>Python</span><span>SQL</span><span>Gradient Boosting</span><span>scikit-learn</span></div>
+            </div>
+          </article>
+
+          <!-- AIQuantum -->
+          <article class="tl-item">
+            <div class="tl-item__node"><span></span></div>
+            <div class="tl-item__date mono">Jan 2025 — Feb 2025</div>
+            <div class="tl-card" data-tilt>
+              <div class="tl-card__glow"></div>
+              <header class="tl-card__head">
+                <div>
+                  <h3>Computer Vision Intern</h3>
+                  <p class="tl-card__org">AIQuantum Smart Solutions · NITK Surathkal</p>
+                </div>
+              </header>
+              <ul class="tl-card__list">
+                <li>Developed a U-Net CNN for automated road segmentation — <strong>91.17% test accuracy</strong>.</li>
+                <li>Data cleaning, outlier handling and hyper-parameter tuning lifted model performance by <strong>12%</strong>.</li>
+              </ul>
+              <div class="tags"><span>PyTorch</span><span>CNNs</span><span>U-Net</span><span>Image Segmentation</span></div>
+            </div>
+          </article>
+
+          <!-- Education -->
+          <article class="tl-item tl-item--edu">
+            <div class="tl-item__node"><span></span></div>
+            <div class="tl-item__date mono">2022 — 2026</div>
+            <div class="tl-card tl-card--edu" data-tilt>
+              <div class="tl-card__glow"></div>
+              <div class="edu">
+                <div class="edu__gauge">
+                  <svg viewBox="0 0 120 120" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#5ef2ff" />
+                        <stop offset="55%" stop-color="#8b5cf6" />
+                        <stop offset="100%" stop-color="#ff3d81" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="52" class="edu__track" />
+                    <circle cx="60" cy="60" r="52" class="edu__arc" id="gaugeArc" />
+                  </svg>
+                  <div class="edu__value"><span data-count="9.61" data-decimals="2">0</span><small>/ 10</small></div>
+                </div>
+                <div>
+                  <h3>B.E. — Artificial Intelligence &amp; Machine Learning</h3>
+                  <p class="tl-card__org">M S Ramaiah Institute of Technology, Bengaluru</p>
+                  <a class="cert" href="https://www.coursera.org/account/accomplishments/specialization/9D5ULHHF46YX" target="_blank" rel="noopener" data-cursor="Verify">
+                    <span class="cert__icon">✦</span>
+                    <span>
+                      <strong>Machine Learning Specialization</strong>
+                      <small>Stanford Online · DeepLearning.AI — view certificate ↗</small>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <span class="section__index mono">03 — Work Experience</span>
+          </div>
+          <div class="filters" role="tablist" aria-label="Filter projects">
+            <button class="filter is-active" data-filter="all">All</button>
+            <button class="filter" data-filter="genai">GenAI</button>
+            <button class="filter" data-filter="ml">ML / DL</button>
+            <button class="filter" data-filter="analytics">Analytics</button>
+            <button class="filter" data-filter="automation">Automation</button>
+          </div>
+        </div>
+
+        <div class="bento" id="bento">
+
+          <!-- 1. D0 Player-Journey Analysis -->
+          <article class="card card--md" data-cat="analytics ml" data-tilt data-cursor="Transitions">
+            <div class="card__viz"><canvas data-viz="markov"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>01</span><span>PlaySimple</span></div>
+              <h3>D0 Player-Journey Analysis</h3>
+              <p>Markov chains &amp; FSMs over puzzle-state transitions to find day-0 journeys that drive D1 retention — ranked with Wilson lower bounds and explored in an interactive D3 journey tree.</p>
+              <div class="tags"><span>Markov Chains</span><span>FSM</span><span>SQL</span><span>D3.js</span></div>
+            </div>
+          </article>
+
+          <article class="card card--lg" data-cat="genai automation" data-tilt data-cursor="Render">
+            <div class="card__viz"><canvas data-viz="video"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>02</span><span>PlaySimple</span></div>
+              <h3>Creative Studios — AI Video Generation</h3>
+              <p>End-to-end platform stitching LLM storylines, Seedance AI visuals, automated transitions and real gameplay from 4 playable games into finished video ads — gameplay, live-action, influencer &amp; voice-over formats.</p>
+              <div class="card__metrics">
+                <div><b data-count="240" data-suffix="+">0</b><small>storylines / week</small></div>
+                <div><b data-count="3">0</b><small>regions</small></div>
+                <div><b data-count="4">0</b><small>creative formats</small></div>
+              </div>
+              <div class="tags"><span>LLMs</span><span>Seedance</span><span>FFmpeg</span><span>Google Drive API</span></div>
+            </div>
+          </article>
+
+          <article class="card card--md" data-cat="analytics" data-tilt data-cursor="Forecast">
+            <div class="card__viz"><canvas data-viz="revenue"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>03</span><span>PlaySimple</span></div>
+              <h3>Recovery &amp; Revenue Dashboard</h3>
+              <p>Recovery, spend and ROAS in one place, with regression-based recovery curves and revenue forecasts — including product-level estimates for games with &lt; 3 months of data.</p>
+              <div class="tags"><span>FastAPI</span><span>React</span><span>SQL</span><span>Forecasting</span></div>
+            </div>
+          </article>
+
+          <article class="card card--md" data-cat="ml analytics" data-tilt data-cursor="LTV">
+            <div class="card__viz"><canvas data-viz="ltv"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>04</span><span>PlaySimple</span></div>
+              <h3>LTV Model for GCC Markets</h3>
+              <p>Lifetime-value prediction at game × CLI × country grain. Restructured data across levels to grow per-market training sets and beat the existing baseline.</p>
+              <div class="tags"><span>PySpark</span><span>Databricks</span><span>ML</span><span>SQL</span></div>
+            </div>
+          </article>
+
+          <article class="card card--md" data-cat="automation genai" data-tilt data-cursor="Generate">
+            <div class="card__viz"><canvas data-viz="tiles"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>05</span><span>PlaySimple</span></div>
+              <h3>Static Ad Creative Automation</h3>
+              <p>Batch-generates marketing statics with varied encrypted text, backgrounds, borders, fonts and layouts. A Streamlit app triggers jobs, tracks progress and previews results from S3.</p>
+              <div class="tags"><span>OpenCV</span><span>Pillow</span><span>Streamlit</span><span>AWS S3</span></div>
+            </div>
+          </article>
+
+          <article class="card card--md" data-cat="genai" data-tilt data-cursor="Validate">
+            <div class="card__viz"><canvas data-viz="words"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>06</span><span>PlaySimple</span></div>
+              <h3>LLM Content Generation for a DTC Game</h3>
+              <p>A 5-stage pipeline — words, clues, sources, citations, fact-checks — with embedding-based duplicate detection against 223 historical records, auto-regeneration and a guaranteed ≥ 10 validated items per run.</p>
+              <div class="tags"><span>GPT</span><span>SentenceTransformers</span><span>Sheets API</span></div>
+            </div>
+          </article>
+
+          <article class="card card--md" data-cat="automation" data-tilt data-cursor="Automate">
+            <div class="card__viz"><canvas data-viz="agent"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>07</span><span>PlaySimple</span></div>
+              <h3>Ad-Network Reporting Agent</h3>
+              <p>A deterministic, LLM-free Playwright agent that logs into 25+ ad-network dashboards, sets date ranges, screenshots, exports reports and fuses everything into finance-ready XLSX files.</p>
+              <div class="tags"><span>Playwright</span><span>Python</span><span>asyncio</span><span>openpyxl</span></div>
+            </div>
+          </article>
+
+          <article class="card card--half" data-cat="ml" data-tilt data-cursor="Segment">
+            <div class="card__viz"><canvas data-viz="segment"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>08</span><span>AIQuantum · NITK</span></div>
+              <h3>Road Segmentation with U-Net</h3>
+              <p>Pixel-level road extraction from aerial imagery with an encoder–decoder CNN. Careful cleaning and tuning pushed test accuracy to 91.17%.</p>
+              <div class="tags"><span>PyTorch</span><span>U-Net</span><span>CNNs</span></div>
+            </div>
+          </article>
+
+          <article class="card card--half" data-cat="ml automation" data-tilt data-cursor="Monitor">
+            <div class="card__viz"><canvas data-viz="inventory"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>09</span><span>4SYZ Infotech</span></div>
+              <h3>Inventory Tracking &amp; Categorisation</h3>
+              <p>Dynamic-threshold alerts on stock levels plus a gradient-boosting classifier that auto-categorises incoming products — 10 hours a week of manual work removed.</p>
+              <div class="tags"><span>Gradient Boosting</span><span>SQL</span><span>Python</span></div>
+            </div>
+          </article>
+
+          <article class="card card--xl" data-cat="ml genai" data-tilt data-cursor="Graph">
+            <div class="card__viz"><canvas data-viz="graph"></canvas></div>
+            <div class="card__body">
+              <div class="card__top mono"><span>10</span><span>Research project</span></div>
+              <h3>Influencer Recommendation with Multimodal Learning &amp; GNNs</h3>
+              <p>Recommends relevant, credible creators for brands by fusing content (CLIP ViT-B/32), engagement metrics and network structure (GraphSAGE), with an autoencoder flagging inflated engagement. Retrieval is served via FAISS + FastAPI.</p>
+              <div class="card__metrics">
+                <div><b data-count="3.1" data-decimals="1" data-suffix="×">0</b><small>better ranking vs. follower count</small></div>
+                <div><b data-count="2960" data-suffix="+">0</b><small>YouTube &amp; Instagram profiles</small></div>
+                <div><b data-count="4">0</b><small>baselines outperformed</small></div>
+              </div>
+              <div class="tags"><span>CLIP</span><span>GraphSAGE</span><span>FAISS</span><span>Autoencoder</span><span>FastAPI</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__head">
+          <span class="section__index mono">04 — Toolkit</span>
+          <h2 class="section__title" data-split-lines>A connected<br /><span class="grad">stack of skills.</span></h2>
+        </div>
+
+        <div class="skills__grid">
+          <div class="constellation reveal-up" data-cursor="Drag">
+            <canvas id="skillCanvas"></canvas>
+            <div class="constellation__hud mono">
+              <span>nodes: <b id="skillCount">0</b></span>
+              <span>hover a node · drag to perturb</span>
+            </div>
+          </div>
+
+          <div class="skill-groups">
+            <div class="skill-group reveal-up" data-group="0">
+              <div class="skill-group__head"><span class="swatch" style="--c:#5ef2ff"></span><h4>Programming &amp; Data</h4></div>
+              <p>Python · SQL · NumPy · Pandas · PySpark</p>
+            </div>
+            <div class="skill-group reveal-up" data-group="1">
+              <div class="skill-group__head"><span class="swatch" style="--c:#8b5cf6"></span><h4>Machine Learning</h4></div>
+              <p>scikit-learn · Feature Engineering · Classification · Regression · Clustering · Model Evaluation</p>
+            </div>
+            <div class="skill-group reveal-up" data-group="2">
+              <div class="skill-group__head"><span class="swatch" style="--c:#ff3d81"></span><h4>Deep Learning</h4></div>
+              <p>PyTorch · CNNs · Transformers · Graph Neural Networks</p>
+            </div>
+            <div class="skill-group reveal-up" data-group="3">
+              <div class="skill-group__head"><span class="swatch" style="--c:#c6ff4d"></span><h4>Generative AI</h4></div>
+              <p>LLMs · RAG · Prompt Engineering · Embeddings · FAISS</p>
+            </div>
+            <div class="skill-group reveal-up" data-group="4">
+              <div class="skill-group__head"><span class="swatch" style="--c:#ffb347"></span><h4>Tools &amp; Frameworks</h4></div>
+              <p>Git · Databricks · Tableau · FastAPI · React · Streamlit · Playwright</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+        <span class="section__index mono">05 — Contact</span>
+        <h2 class="contact__title">
+          <span class="contact__line" data-split>Let's build</span>
+          <span class="contact__line" data-split>something <em class="grad">intelligent.</em></span>
+        </h2>
+
+        <!-- ===== EDIT: CONTACT BLURB ===== -->
+        <p class="contact__blurb reveal-up">
+          Placeholder: open to conversations about machine learning, generative AI and data-science roles or collaborations.
+          Drop a line — I usually reply within a day.
+        </p>
+        <!-- ===== /EDIT ===== -->
+
+        <div class="contact__actions reveal-up">
+          <button class="email-btn" id="emailBtn" data-magnetic data-cursor="Copy" data-email="apkoundinya@gmail.com">
+            <span class="email-btn__text">apkoundinya@gmail.com</span>
+            <span class="email-btn__icon">⧉</span>
+          </button>
+        </div>
+
+        <div class="socials reveal-up">
+          <a href="https://in.linkedin.com/in/a-pranav-koundinya-ab751b291" target="_blank" rel="noopener" class="social" data-magnetic data-cursor="Connect">
+            <span class="mono">01</span> LinkedIn <span class="btn__arrow">↗</span>
+          </a>
+          <a href="https://github.com/A-Pranav-Koundinya" target="_blank" rel="noopener" class="social" data-magnetic data-cursor="Code">
+            <span class="mono">02</span> GitHub <span class="btn__arrow">↗</span>
+          </a>
+          <a href="mailto:apkoundinya@gmail.com" class="social" data-magnetic data-cursor="Write">
+            <span class="mono">03</span> Email <span class="btn__arrow">↗</span>
+          </a>
+          <a href="assets/A_Pranav_Koundinya_Resume.pdf" target="_blank" rel="noopener" class="social" data-magnetic data-cursor="Open">
+            <span class="mono">04</span> Résumé <span class="btn__arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner mono">
+      <span>© <span id="year">2026</span> A Pranav Koundinya</span>
+      <span class="dim">Designed &amp; engineered with Three.js · GSAP · Canvas</span>
+      <a href="#top" class="footer__top" data-magnetic>Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast mono" id="toast" role="status" aria-live="polite">Email copied to clipboard ✓</div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
